@@ -3,9 +3,12 @@ package user.management.userManagement.dataAccess.concretes;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import user.management.userManagement.dataAccess.abstracts.UserRepository;
 import user.management.userManagement.entities.concretes.User;
 
+@Repository // Bir veritabani nesnesi
 public class InMemoryUserRepository implements UserRepository{
 
 	List<User> users;
