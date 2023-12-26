@@ -1,49 +1,30 @@
-package user.management.userManagement.entities.concretes;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+package user.management.userManagement.business.Responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Table(name="users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class User {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
+public class GetAllUsersResponse {
 	private int id;
-	@Column(name="firstName")
 	private String firstName;
-	@Column(name="lastName")
 	private String lastName;
-	@Column(name="email")
 	private String email;
-	@Column(name="address")
 	private String address;
-	@Column(name="password")
-	private String password;
 	
-	public User() {
+	public GetAllUsersResponse() {
 		super();
 	}
 
-	public User(int id, String firstName, String lastName, String email, String address, String password) {
+	public GetAllUsersResponse(int id, String firstName, String lastName, String email, String address) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.address = address;
-		this.password = password;
 	}
 
 	public int getId() {
@@ -85,13 +66,6 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
+	
 	
 }
