@@ -1,9 +1,9 @@
 package user.management.userManagement.dataAccess.abstracts;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import user.management.userManagement.entities.concretes.User;
 
-public interface UserRepository {
-	List<User> getAll();	
+public interface UserRepository extends JpaRepository<User, Integer> {
+		
 }

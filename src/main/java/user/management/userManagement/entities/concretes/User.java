@@ -1,6 +1,20 @@
 package user.management.userManagement.entities.concretes;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Table(name="users")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
 public class User {
+	@Id
 	private int id;
 	private String firstName;
 	private String lastName;
@@ -69,6 +83,5 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 	
 }
