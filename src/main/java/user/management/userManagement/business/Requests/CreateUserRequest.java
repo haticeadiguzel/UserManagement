@@ -63,8 +63,8 @@ public class CreateUserRequest {
 		return password;
 	}
 
-	public void setPassword(String address) {
-		this.password = address;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 }
