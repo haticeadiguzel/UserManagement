@@ -1,2 +1,8 @@
-package user.management.userManagement.core.utilities.mappers;public interface ModelMapperService {
+package user.management.userManagement.core.utilities.mappers;
+
+import org.modelmapper.ModelMapper;
+
+public interface ModelMapperService {
+    ModelMapper forResponse();
+    ModelMapper forRequest();
 }

@@ -1,4 +1,4 @@
-package user.management.userManagement.business.DTOs.Responses;
+package user.management.userManagement.business.DTOs.Responses.GetAll;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

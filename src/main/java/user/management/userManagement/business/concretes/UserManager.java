@@ -1,71 +1,59 @@
 package user.management.userManagement.business.concretes;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
-import user.management.userManagement.business.Requests.CreateUserRequest;
-import user.management.userManagement.business.Responses.GetAllUsersResponse;
-import user.management.userManagement.business.Responses.GetByIdUserResponse;
+import user.management.userManagement.business.DTOs.Requests.Create.CreateUserRequest;
+import user.management.userManagement.business.DTOs.Requests.Update.UpdateUserRequest;
+import user.management.userManagement.business.DTOs.Responses.GetAll.GetAllUsersResponse;
+import user.management.userManagement.business.DTOs.Responses.GetById.GetByIdUserResponse;
 import user.management.userManagement.business.abstracts.UserService;
+import user.management.userManagement.core.utilities.mappers.ModelMapperService;
 import user.management.userManagement.dataAccess.abstracts.UserRepository;
 import user.management.userManagement.entities.concretes.User;
 
 @AllArgsConstructor
 @Service
 public class UserManager implements UserService {
-	// Injection - loosly coupled, bu sayede yeni teknolojilere gecmek daha kolay olur
-	//Dependency Injection
 	private UserRepository userRepository;
+	private ModelMapperService modelMapperService;
 
 	@Override
 	public List<GetAllUsersResponse> getAll() {
 		List<User> users = userRepository.findAll();
-		List<GetAllUsersResponse> usersResponse = new ArrayList<GetAllUsersResponse>();
-		
-		for (User user : users) {
-			GetAllUsersResponse responseItem = new GetAllUsersResponse();
-			responseItem.setFirstName(user.getFirstName());
-			responseItem.setLastName(user.getLastName());
-			responseItem.setEmail(user.getEmail());
-			responseItem.setAddress(user.getAddress());
-			
-			usersResponse.add(responseItem);
-		}
-		
+		//stream elimizde bir liste varsa tek tek dolasmamizi saglar.
+		List<GetAllUsersResponse> usersResponse = users.stream()
+				.map(user->this.modelMapperService.forResponse().map(user, GetAllUsersResponse.class))
+				.collect(Collectors.toList());
 		return usersResponse;
-		
-	}
-
-	@Override
-	public void add(CreateUserRequest createUserRequest) {
-		User user = new User();
-		user.setFirstName(createUserRequest.getFirstName());
-		user.setLastName(createUserRequest.getLastName());
-		user.setEmail(createUserRequest.getEmail());
-		user.setAddress(createUserRequest.getAddress());
-		user.setPassword(createUserRequest.getPassword());
-		
-		this.userRepository.save(user);
-		
 	}
 
 	@Override
 	public GetByIdUserResponse getById(int id) {
 		User user = this.userRepository.findById(id).orElseThrow();
-		
-		GetByIdUserResponse getByIdUserResponse = new GetByIdUserResponse();
-		getByIdUserResponse.setFirstName(user.getFirstName());
-		getByIdUserResponse.setLastName(user.getLastName());
-		getByIdUserResponse.setEmail(user.getEmail());
-		getByIdUserResponse.setAddress(user.getAddress());
-		
-		return getByIdUserResponse;
+		GetByIdUserResponse response = this.modelMapperService.forResponse().map(user, GetByIdUserResponse.class);
+		return response;
 	}
 
-	
+	@Override
+	public void add(CreateUserRequest createUserRequest) {
+		// Model mapper arka planda user new'liyor.
+		User user = this.modelMapperService.forRequest().map(createUserRequest, User.class);
+		this.userRepository.save(user);
+	}
+
+	@Override
+	public void update(UpdateUserRequest updateUserRequest) {
+		//add ile ayni fakat burda id oldugu icin guncelleme yapar
+		User user = this.modelMapperService.forRequest().map(updateUserRequest, User.class);
+		this.userRepository.save(user);
+	}
+
+	@Override
+	public void delete(int id) {
+		this.userRepository.deleteById(id);
+	}
 }
