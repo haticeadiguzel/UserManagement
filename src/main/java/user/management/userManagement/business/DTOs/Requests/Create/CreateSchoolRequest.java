@@ -1,4 +1,4 @@
-package user.management.userManagement.business.Requests;
+package user.management.userManagement.business.DTOs.Requests;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

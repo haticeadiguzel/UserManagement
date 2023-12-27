@@ -1,4 +1,4 @@
-package user.management.userManagement.business.Requests;
+package user.management.userManagement.business.DTOs.Responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,12 +12,11 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateStudentRequest {
+public class GetAllStudentsResponse {
     private String firstName;
     private String lastName;
     private String grade;
     private Integer studentNo;
     private School school;
-    private Address address;
     private List<Course> courses;
 }

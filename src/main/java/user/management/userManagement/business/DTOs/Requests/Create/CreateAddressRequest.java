@@ -1,4 +1,4 @@
-package user.management.userManagement.business.Responses;
+package user.management.userManagement.business.DTOs.Requests;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,7 @@ import user.management.userManagement.entities.concretes.Student;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetAllAddressesResponse {
+public class CreateAddressRequest {
     private String openAddress;
     private Student student;
 }
