@@ -10,5 +10,4 @@ import user.management.userManagement.entities.concretes.Student;
 @NoArgsConstructor
 public class CreateAddressRequest {
     private String openAddress;
-    private Student student;
 }

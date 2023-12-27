@@ -12,5 +12,4 @@ import java.util.List;
 @NoArgsConstructor
 public class CreateCourseRequest {
     private String courseName;
-    List<Student> students;
 }

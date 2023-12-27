@@ -3,7 +3,6 @@ package user.management.userManagement.business.DTOs.Requests.Create;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import user.management.userManagement.entities.concretes.Student;
 
 import java.util.List;
 
@@ -12,5 +11,4 @@ import java.util.List;
 @NoArgsConstructor
 public class CreateSchoolRequest {
     private String schoolName;
-    List<Student> students;
 }

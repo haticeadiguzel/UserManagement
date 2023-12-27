@@ -1,6 +1,8 @@
 package user.management.userManagement.entities.concretes;
 
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,8 +33,8 @@ public class Student {
 	private String lastName;
 	@Column(name="grade")
 	private String grade;
-	@Column(name = "studentNo")
-	private Integer studentNo;
+	@Column(name = "studentNo", unique = true)
+	private String studentNo;
 	@ManyToOne
 	@JoinColumn(name="school_id")
 	private School school;

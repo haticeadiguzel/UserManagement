@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import user.management.userManagement.entities.concretes.Address;
-import user.management.userManagement.entities.concretes.Course;
 import user.management.userManagement.entities.concretes.School;
 
 import java.util.List;
@@ -17,8 +16,7 @@ public class UpdateStudentRequest {
     private String firstName;
     private String lastName;
     private String grade;
-    private Integer studentNo;
+    private String studentNo;
     private School school;
     private Address address;
-    private List<Course> courses;
 }

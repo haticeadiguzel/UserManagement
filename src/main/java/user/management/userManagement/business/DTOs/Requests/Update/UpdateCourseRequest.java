@@ -13,5 +13,4 @@ import java.util.List;
 public class UpdateCourseRequest {
     private int id;
     private String courseName;
-    List<Student> students;
 }

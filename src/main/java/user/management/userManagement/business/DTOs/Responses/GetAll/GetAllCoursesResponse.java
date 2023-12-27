@@ -12,5 +12,5 @@ import java.util.List;
 @NoArgsConstructor
 public class GetAllCoursesResponse {
     private String courseName;
-    List<Student> students;
+    private List<Student> students;
 }

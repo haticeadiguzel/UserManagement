@@ -12,5 +12,5 @@ import java.util.List;
 @NoArgsConstructor
 public class GetByIdSchoolResponse {
     private String schoolName;
-    List<Student> students;
+    private List<Student> students;
 }

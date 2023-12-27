@@ -11,5 +11,4 @@ import user.management.userManagement.entities.concretes.Student;
 public class UpdateAddressRequest {
     private int id;
     private String openAddress;
-    private Student student;
 }

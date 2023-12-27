@@ -13,5 +13,4 @@ import java.util.List;
 public class UpdateSchoolRequest {
     private int id;
     private String schoolName;
-    List<Student> students;
 }

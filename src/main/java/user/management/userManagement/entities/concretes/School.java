@@ -2,13 +2,8 @@ package user.management.userManagement.entities.concretes;
 
 import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,5 +19,5 @@ public class School {
 	@Column(name="schoolName")
 	private String schoolName;
 	@OneToMany(mappedBy = "school")
-	List<Student> students;
+	private List<Student> students;
 }

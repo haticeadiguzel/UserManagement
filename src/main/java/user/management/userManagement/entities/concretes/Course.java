@@ -21,8 +21,8 @@ public class Course {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
-	@Column(name="schoolName")
+	@Column(name="courseName")
 	private String courseName;
 	@ManyToMany(mappedBy = "courses")
-	List<Student> students;
+	private List<Student> students;
 }
