@@ -15,8 +15,6 @@ import lombok.NoArgsConstructor;
 
 @Table(name="courses")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 public class Course {
 	@Id
@@ -27,40 +25,4 @@ public class Course {
 	private String courseName;
 	@ManyToMany(mappedBy = "courses")
 	List<Student> students;
-	
-	public Course() {
-		super();
-	}
-
-	public Course(int id, String courseName, List<Student> students) {
-		super();
-		this.id = id;
-		this.courseName = courseName;
-		this.students = students;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getCourseName() {
-		return courseName;
-	}
-
-	public void setCourseName(String courseName) {
-		this.courseName = courseName;
-	}
-
-	public List<Student> getStudents() {
-		return students;
-	}
-
-	public void setStudents(List<Student> students) {
-		this.students = students;
-	}
-	
 }

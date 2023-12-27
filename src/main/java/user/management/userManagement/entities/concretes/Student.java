@@ -19,8 +19,6 @@ import lombok.NoArgsConstructor;
 
 @Table(name="students")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 public class Student {
 	@Id
@@ -45,77 +43,4 @@ public class Student {
 		inverseJoinColumns = @JoinColumn(name="course_id")
 	)
 	private List<Course> courses;
-	
-	public Student() {
-		super();
-	}
-
-	public Student(int id, String firstName, String lastName, String grade, School school, Address address,
-			List<Course> courses) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.grade = grade;
-		this.school = school;
-		this.address = address;
-		this.courses = courses;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getGrade() {
-		return grade;
-	}
-
-	public void setGrade(String grade) {
-		this.grade = grade;
-	}
-
-	public School getSchool() {
-		return school;
-	}
-
-	public void setSchool(School school) {
-		this.school = school;
-	}
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
-	public List<Course> getCourses() {
-		return courses;
-	}
-
-	public void setCourses(List<Course> courses) {
-		this.courses = courses;
-	}
-	
 }

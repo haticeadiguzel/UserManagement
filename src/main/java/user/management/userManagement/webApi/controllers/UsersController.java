@@ -20,18 +20,11 @@ import user.management.userManagement.business.abstracts.UserService;
 //annotation - Bilgilendirme
 @RestController
 @RequestMapping("/api/users") //adresleme
-@Controller
 @AllArgsConstructor
+@Controller
 public class UsersController {
 	private UserService userService;
-	
-	// Bu bize otomatik olarak parametrelere bakip userservice nereden gelmis gidip bakar
-	@Autowired
-	public UsersController(UserService userService) {
-		super();
-		this.userService = userService;
-	}
-	
+
 	@GetMapping("/getall")
 	public List<GetAllUsersResponse> getAll(){
 		return userService.getAll();

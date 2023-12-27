@@ -3,6 +3,7 @@ package user.management.userManagement.business.concretes;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,17 +15,12 @@ import user.management.userManagement.business.abstracts.UserService;
 import user.management.userManagement.dataAccess.abstracts.UserRepository;
 import user.management.userManagement.entities.concretes.User;
 
-@Service // Bir business nesnesi
 @AllArgsConstructor
+@Service
 public class UserManager implements UserService {
 	// Injection - loosly coupled, bu sayede yeni teknolojilere gecmek daha kolay olur
 	//Dependency Injection
 	private UserRepository userRepository;
-	
-	@Autowired
-	public UserManager(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
 
 	@Override
 	public List<GetAllUsersResponse> getAll() {
@@ -53,6 +49,7 @@ public class UserManager implements UserService {
 		user.setLastName(createUserRequest.getLastName());
 		user.setEmail(createUserRequest.getEmail());
 		user.setAddress(createUserRequest.getAddress());
+		user.setPassword(createUserRequest.getPassword());
 		
 		this.userRepository.save(user);
 		
@@ -60,7 +57,6 @@ public class UserManager implements UserService {
 
 	@Override
 	public GetByIdUserResponse getById(int id) {
-		//Id bulamama ihtimaline karsi hata gonderir
 		User user = this.userRepository.findById(id).orElseThrow();
 		
 		GetByIdUserResponse getByIdUserResponse = new GetByIdUserResponse();
