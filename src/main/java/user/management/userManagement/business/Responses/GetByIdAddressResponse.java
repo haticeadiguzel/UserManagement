@@ -3,13 +3,12 @@ package user.management.userManagement.business.Responses;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import user.management.userManagement.entities.concretes.Student;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetAllUsersResponse {
-	private String firstName;
-	private String lastName;
-	private String email;
-	private String address;
+public class GetByIdAddressResponse {
+    private String openAddress;
+    private Student student;
 }

@@ -29,7 +29,6 @@ public class UserManager implements UserService {
 		
 		for (User user : users) {
 			GetAllUsersResponse responseItem = new GetAllUsersResponse();
-			responseItem.setId(user.getId());
 			responseItem.setFirstName(user.getFirstName());
 			responseItem.setLastName(user.getLastName());
 			responseItem.setEmail(user.getEmail());
@@ -60,7 +59,6 @@ public class UserManager implements UserService {
 		User user = this.userRepository.findById(id).orElseThrow();
 		
 		GetByIdUserResponse getByIdUserResponse = new GetByIdUserResponse();
-		getByIdUserResponse.setId(user.getId());
 		getByIdUserResponse.setFirstName(user.getFirstName());
 		getByIdUserResponse.setLastName(user.getLastName());
 		getByIdUserResponse.setEmail(user.getEmail());

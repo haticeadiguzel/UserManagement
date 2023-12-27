@@ -31,6 +31,8 @@ public class Student {
 	private String lastName;
 	@Column(name="grade")
 	private String grade;
+	@Column(name = "studentNo")
+	private Integer studentNo;
 	@ManyToOne
 	@JoinColumn(name="school_id")
 	private School school;
