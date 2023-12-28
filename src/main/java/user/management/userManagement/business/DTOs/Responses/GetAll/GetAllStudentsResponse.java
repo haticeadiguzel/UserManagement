@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import user.management.userManagement.entities.concretes.Course;
+import user.management.userManagement.entities.concretes.TypeSchool;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class GetAllStudentsResponse {
     private String lastName;
     private String grade;
     private String studentNo;
-    private String schoolName;
+    private TypeSchool schoolName;
     private String openAddress;
     private List<Course> courses;
 }

@@ -16,8 +16,8 @@ public class School {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
-	@Column(name="schoolName")
-	private String schoolName;
+	@Enumerated(EnumType.STRING)
+	private TypeSchool schoolName;
 	@OneToMany(mappedBy = "school")
 	private List<Student> students;
 }
